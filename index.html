@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Art Gallery</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --gallery-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --accent-color: #3498db;
+            --text-color: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--gallery-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        /* Gallery Header */
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        .gallery-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .gallery-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Gallery Grid */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Art Card */
+        .art-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .art-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .art-image-container {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .art-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Art Info */
+        .art-info {
+            padding: 20px;
+        }
+        
+        .art-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+        
+        .art-info .artist {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .art-info .year {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .art-info .description {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .art-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .gallery-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .art-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-header">
+        <h1>Modern Art Gallery</h1>
+        <p>Explore beautiful artworks from talented artists around the world.</p>
+    </div>
+    
+    <div class="art-gallery">
+        <!-- Artwork 1 - Abstract -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#ff7f7f"/>
+                    <circle cx="50" cy="50" r="40" fill="#7fbfff"/>
+                    <circle cx="150" cy="50" r="30" fill="#7fff7f"/>
+                    <circle cx="100" cy="150" r="50" fill="#ff7fff"/>
+                    <polygon points="30,180 170,180 100,30" fill="#ffff7f"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Colorful Abstraction</h3>
+                <p class="artist">By Maria Rodriguez</p>
+                <p class="year">2022</p>
+                <p class="description">A vibrant exploration of color and form that challenges traditional perspectives.</p>
+                <div class="tags">
+                    <span class="tag">Abstract</span>
+                    <span class="tag">Modern</span>
+                    <span class="tag">Colorful</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork 2 - Portrait -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#7fbfff"/>
+                    <circle cx="100" cy="80" r="40" fill="#ffdbac"/>
+                    <ellipse cx="85" cy="75" rx="5" ry="7" fill="#333"/>
+                    <ellipse cx="115" cy="75" rx="5" ry="7" fill="#333"/>
+                    <path d="M85 110 Q100 120 115 110" stroke="#333" fill="transparent" stroke-width="2"/>
+                    <path d="M70 160 L130 160 L120 200 L80 200 Z" fill="#ff7f7f"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Silent Contemplation</h3>
+                <p class="artist">By James Wilson</p>
+                <p class="year">2021</p>
+                <p class="description">A powerful portrait capturing deep emotion and human vulnerability.</p>
+                <div class="tags">
+                    <span class="tag">Portrait</span>
+                    <span class="tag">Realism</span>
+                    <span class="tag">Emotional</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork 3 - Landscape -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#7fff7f"/>
+                    <rect x="0" y="150" width="200" height="50" fill="#8b4513"/>
+                    <polygon points="0,150 50,100 100,130 150,70 200,150" fill="#4682b4"/>
+                    <circle cx="180" cy="40" r="20" fill="#ffff00"/>
+                    <path d="M0 150 Q50 130 100 150 Q150 170 200 150" stroke="#556b2f" fill="transparent" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Mountain Serenity</h3>
+                <p class="artist">By Chen Wei</p>
+                <p class="year">2025</p>
+                <p class="description">A breathtaking landscape capturing the majesty of untouched nature.</p>
+                <div class="tags">
+                    <span class="tag">Landscape</span>
+                    <span class="tag">Oil</span>
+                    <span class="tag">Nature</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork 4 - Sculpture -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#ff7fff"/>
+                    <rect x="90" y="50" width="20" height="120" fill="#c0c0c0"/>
+                    <circle cx="100" cy="60" r="30" fill="#c0c0c0"/>
+                    <rect x="70" y="90" width="60" height="10" fill="#c0c0c0"/>
+                    <rect x="80" y="110" width="40" height="10" fill="#c0c0c0"/>
+                    <rect x="85" y="130" width="30" height="10" fill="#c0c0c0"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Eternal Form</h3>
+                <p class="artist">By Aisha Johnson</p>
+                <p class="year">2025</p>
+                <p class="description">A modern sculpture exploring the relationship between space and form.</p>
+                <div class="tags">
+                    <span class="tag">Sculpture</span>
+                    <span class="tag">Modern</span>
+                    <span class="tag">Minimalist</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork 5 - Digital Art -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#ffff7f"/>
+                    <rect x="20" y="20" width="40" height="40" fill="#ff0000"/>
+                    <rect x="70" y="20" width="40" height="40" fill="#00ff00"/>
+                    <rect x="120" y="20" width="40" height="40" fill="#0000ff"/>
+                    <circle cx="50" cy="120" r="30" fill="#ff00ff"/>
+                    <circle cx="150" cy="120" r="30" fill="#00ffff"/>
+                    <path d="M30 180 L170 180 L100 40 Z" fill="#7f00ff"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Digital Dreams</h3>
+                <p class="artist">By Sam Lee</p>
+                <p class="year">2025</p>
+                <p class="description">A futuristic digital creation blending technology and artistic expression.</p>
+                <div class="tags">
+                    <span class="tag">Digital</span>
+                    <span class="tag">Futuristic</span>
+                    <span class="tag">Concept</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork 6 - Watercolor -->
+        <div class="art-card">
+            <div class="art-image-container">
+                <svg class="art-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#7fffff"/>
+                    <path d="M30 50 Q50 30 70 50 Q90 70 110 50 Q130 30 150 50 Q170 70 170 100 Q150 120 130 100 Q110 80 90 100 Q70 120 50 100 Q30 80 30 50" 
+                          fill="#ff9999" fill-opacity="0.7"/>
+                    <path d="M50 150 Q70 130 90 150 Q110 170 130 150 Q150 130 170 150" 
+                          fill="#99ff99" fill-opacity="0.7" stroke="#339933" stroke-width="2"/>
+                    <circle cx="40" cy="120" r="20" fill="#9999ff" fill-opacity="0.7"/>
+                    <circle cx="160" cy="80" r="25" fill="#ffcc99" fill-opacity="0.7"/>
+                </svg>
+            </div>
+            <div class="art-info">
+                <h3>Watercolor Whimsy</h3>
+                <p class="artist">By Elena Petrov</p>
+                <p class="year">2025</p>
+                <p class="description">Delicate watercolor techniques creating a dreamlike composition.</p>
+                <div class="tags">
+                    <span class="tag">Watercolor</span>
+                    <span class="tag">Delicate</span>
+                    <span class="tag">Dreamlike</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
